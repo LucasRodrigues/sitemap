@@ -26,7 +26,7 @@ export default class SitemapIndexOrchestrator {
     themes.forEach(theme => {
       for (let i = 0, lengthI = theme.urlSets.length; i < lengthI; i++) {
         indexes.push({
-          loc: `http://base/${theme.name}/${i}.xml`
+          loc: `http://base/${theme.name}/index_${i}.xml`
         });
       }
     });

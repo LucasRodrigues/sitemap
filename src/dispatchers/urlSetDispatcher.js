@@ -9,9 +9,9 @@ export default class UrlSetDispatcher{
         mkdirp.sync(themePath);
 
         theme.urlSets.forEach((content,index)=> {
-          const urlSetPath = `${themePath}/${index}.xml`;
+          const urlSetPath = `${themePath}/urlSet_${index}.xml`;
 
-          fs.writeFileSync(urlSetPath,content);
+          fs.writeFileSync(urlSetPath,content)
         });
       });
 

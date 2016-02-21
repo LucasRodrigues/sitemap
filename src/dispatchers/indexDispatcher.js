@@ -5,7 +5,7 @@ export default class IndexDispatcher{
   static do(path,indexes){
     return new Promise((resolve,rejected)=>{
       indexes.forEach((content,index) => {
-        const indexPath = `${path}/${index}.xml`;
+        const indexPath = `${path}/index_${index}.xml`;
         fs.writeFileSync(indexPath,content);
       });
 
