@@ -4,7 +4,7 @@ export default class SitemapIndexOrchestrator {
 
   static get(domain, themes) {
     return new Promise((resolve, rejected) => {
-      let indexesInput = this._createIndexPerTheme(domain,themes);
+      let indexesInput = this._createIndexPerTheme(domain, themes);
       const result = sitemapIndex.do(indexesInput);
 
       if (result.status) {
@@ -21,7 +21,7 @@ export default class SitemapIndexOrchestrator {
     });
   }
 
-  static _createIndexPerTheme(domain,themes) {
+  static _createIndexPerTheme(domain, themes) {
     let indexes = [];
 
     themes.forEach(theme => {

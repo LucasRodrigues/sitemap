@@ -15,7 +15,7 @@
   "scripts": {
     "build:dev": "gulp BUILD_DEVELOPMENT",
     "build:deploy": "gulp BUILD_DEPLOY",
-    "style": "eslint ./src/*.js --fix",
+    "style": "eslint ./src/*.js ./src/dispatchers/*.js --fix",
     "prepublish": "npm run build:deploy"
   },
   "main": "./index.js",
