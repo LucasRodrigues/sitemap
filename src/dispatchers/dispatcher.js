@@ -1,12 +1,17 @@
 import UrlSetDispatcher from './urlSetDispatcher';
 import IndexDispatcher from './indexDispatcher';
+import mkdirp from 'mkdirp';
+import path from 'path';
 
 export default class Dispatcher{
-  static do(path, content){
+  static do(basePath, content){
     return new Promise((resolve,rejected)=>{
-      IndexDispatcher.do(path,content.indexes)
+      basePath = path.join( basePath,this._folder());
+      mkdirp(basePath);
+
+      IndexDispatcher.do(basePath,content.indexes)
         .then(()=> {
-          return UrlSetDispatcher.do(path,content.urlSets);
+          return UrlSetDispatcher.do(basePath,content.urlSets);
         })
         .then(() => {
           resolve();
@@ -15,5 +20,13 @@ export default class Dispatcher{
           rejected(err);
         })
     });
+  }
+
+  static _folder(){
+    const date = new Date();
+
+    return `${date.getFullYear()}_${date.getMonth()+1}_`+
+      `${date.getDate()}_${date.getHours()}_${date.getMinutes()}_` +
+      `${date.getSeconds()}_sitemap`
   }
 }
