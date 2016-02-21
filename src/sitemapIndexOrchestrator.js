@@ -14,6 +14,7 @@ export default class SitemapIndexOrchestrator {
         });
       } else {
         rejected({
+          type: 'index',
           messages: result.messages
         });
       }

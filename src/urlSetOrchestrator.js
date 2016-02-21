@@ -28,7 +28,10 @@ export default class UrlSetOrchestrator {
       if (urlSets.status) {
         resolve(urlSets.themes);
       } else {
-        rejected(this._filterBadStatus(urlSets));
+        rejected({
+          type: 'urlSets',
+          messages: this._filterBadStatus(urlSets)
+        });
       }
     });
   }
