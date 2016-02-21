@@ -6,10 +6,10 @@ import path from 'path';
 export default class Dispatcher {
   static do(basePath, content) {
     return new Promise((resolve, rejected) => {
-      const newBasePath = path.join( basePath, this._folderName());
+      const newBasePath = path.join(basePath, this._folderName());
       this._createBaseFolder(newBasePath)
         .then(() => {
-          return IndexDispatcher.do(newBasePath, content.indexes)
+          return IndexDispatcher.do(newBasePath, content.indexes);
         })
         .then(() => {
           return UrlSetDispatcher.do(newBasePath, content.urlSets);
@@ -19,16 +19,16 @@ export default class Dispatcher {
         })
         .catch(err => {
           rejected(err);
-        })
+        });
     });
   }
 
-  static _createBaseFolder(basePath){
-    return new Promise((resolve,rejected)=> {
-      mkdirp(basePath, err =>{
-        if(err){
+  static _createBaseFolder(basePath) {
+    return new Promise((resolve, rejected) => {
+      mkdirp(basePath, err => {
+        if (err) {
           rejected(err);
-        }else{
+        } else {
           resolve(basePath);
         }
       });
