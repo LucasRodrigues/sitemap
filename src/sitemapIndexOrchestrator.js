@@ -2,9 +2,9 @@ import sitemapIndex from 'sitemap-index';
 
 export default class SitemapIndexOrchestrator {
 
-  static get(themes) {
+  static get(domain, themes) {
     return new Promise((resolve, rejected) => {
-      let indexesInput = this._createIndexPerTheme(themes);
+      let indexesInput = this._createIndexPerTheme(domain,themes);
       const result = sitemapIndex.do(indexesInput);
 
       if (result.status) {
@@ -20,13 +20,13 @@ export default class SitemapIndexOrchestrator {
     });
   }
 
-  static _createIndexPerTheme(themes) {
+  static _createIndexPerTheme(domain,themes) {
     let indexes = [];
 
     themes.forEach(theme => {
       for (let i = 0, lengthI = theme.urlSets.length; i < lengthI; i++) {
         indexes.push({
-          loc: `http://base/${theme.name}/index_${i}.xml`
+          loc: `${domain}/${theme.name}/index_${i}.xml`
         });
       }
     });

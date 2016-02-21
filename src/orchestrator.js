@@ -7,7 +7,7 @@ export default class Orchestrator {
   static do(configuration) {
     UrlSetOrchestrator.get(configuration.themes)
       .then(urlSets => {
-        return SiteMapIndexOrchestrator.get(urlSets);
+        return SiteMapIndexOrchestrator.get(configuration.domain,urlSets);
       })
       .then(output => {
         return Dispatcher.do(configuration.path, output);
@@ -17,7 +17,7 @@ export default class Orchestrator {
       })
       .catch(r => {
         console.log('sss');
-        console.log(r);
+        console.log(r.messages[0]);
       });
   }
 }
