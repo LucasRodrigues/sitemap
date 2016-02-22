@@ -15,9 +15,10 @@ $ npm install sitemap-system
 ## CI
 [![Circle CI](https://circleci.com/gh/LucasRodrigues/sitemap.svg?style=svg)](https://circleci.com/gh/LucasRodrigues/sitemap)
 
-## Configuration
+## Input 
 
-### Fields
+### Json properties
+
 #### path
   path where the sitemap content will be saved
 #### domain
@@ -40,6 +41,7 @@ $ npm install sitemap-system
   - changeFreq
   
   Information of how often this data is updated
+
   Accept values:
     - always
     - hourly
