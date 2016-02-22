@@ -6,6 +6,12 @@ Generate sitemap index and urlset on simple way :rocket:
 
 http://www.sitemaps.org/protocol.html
 
+## Install
+
+```
+$ npm install sitemap-system
+```
+
 ## CI
 [![Circle CI](https://circleci.com/gh/LucasRodrigues/sitemap.svg?style=svg)](https://circleci.com/gh/LucasRodrigues/sitemap)
 
