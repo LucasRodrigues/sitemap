@@ -117,7 +117,7 @@ $ npm install sitemap-system
 
 ### Example
 
-Based on configuration example
+Based on configuration [example](https://github.com/LucasRodrigues/sitemap-system#example)
 
 ```
 ├── sitemap/
