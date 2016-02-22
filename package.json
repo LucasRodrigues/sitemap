@@ -1,9 +1,9 @@
 {
-  "name": "sitemap",
+  "name": "sitemap-system",
   "description": "Generate sitemap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LucasRodrigues/sitemap.git"
+    "url": "https://github.com/LucasRodrigues/sitemap-system.git"
   },
   "version": "0.0.1",
   "license": "MIT",
