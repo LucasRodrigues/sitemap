@@ -1,6 +1,5 @@
 import UrlSetOrchestrator from './urlSetOrchestrator';
 import SiteMapIndexOrchestrator from './sitemapIndexOrchestrator';
-import Dispatcher from './dispatchers/dispatcher';
 
 export default class Orchestrator {
 
@@ -10,11 +9,8 @@ export default class Orchestrator {
         .then(urlSets => {
           return SiteMapIndexOrchestrator.get(configuration.domain, urlSets);
         })
-        .then(output => {
-          return Dispatcher.do(configuration.path, output);
-        })
-        .then(() => {
-          resolve();
+        .then(sitemap => {
+          resolve(sitemap);
         })
         .catch(error => {
           rejected(error);
